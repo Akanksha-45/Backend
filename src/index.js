@@ -16,8 +16,7 @@ connectDB()
     app.listen(process.env.PORT || 8000, () => {
         console.log(`App is listening on port ${process.env.PORT || 8000}`);
     })
-
-
+})
 .catch((err) => {
     console.log("MONGO DB CONNECTION ERROR ", err);
 })
@@ -26,28 +25,28 @@ connectDB()
 
 
 
-/*
-import express from "express"
 
-(async()=< {
+// import express from "express"
 
-    try {
-       await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`)
-       app.on("error" ,(error) ( =>{
-        console.log("ERROR:" ,error);
-        throw error
-       }))
+// (async()=< {
 
-       app.listen(process.env.PORT,()=>{
-        console.log(`App is listening on port ${procces.env.PORT}`);
-        throw error
-       })
+//     try {
+//        await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`)
+//        app.on("error" ,(error) ( =>{
+//         console.log("ERROR:" ,error);
+//         throw error
+//        }))
+
+//        app.listen(process.env.PORT,()=>{
+//         console.log(`App is listening on port ${procces.env.PORT}`);
+//         throw error
+//        })
 
 
 
-    } catch (error ){
-        console.error("ERROR: ",error)
-        throw err
+//     } catch (error ){
+//         console.error("ERROR: ",error)
+//         throw err
 
-    }
-})()*/
+//     }
+// })() 

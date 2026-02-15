@@ -5,10 +5,14 @@ import express from "express";
 
 
 import connectDB from "./db/index.js";
+import userRouter from "./routes/user.routes.js";
+
 
 
 
 const app = express();
+
+app.use("/api/v1/users", userRouter);
 
 connectDB()
 
@@ -20,6 +24,9 @@ connectDB()
 .catch((err) => {
     console.log("MONGO DB CONNECTION ERROR ", err);
 })
+
+
+
 
 
 

@@ -10,8 +10,9 @@ app.use(cors({
     credentials: true
 }))
 
+// Parse JSON, but skip multipart/form-data (let Multer handle it)
 app.use(express.json({limit: "16kb"}))
-app.use(express.urlencoded({extended: true,limit: "16kb"}))
+app.use(express.urlencoded({extended: true, limit: "16kb"}))
 
 app.use(express.static("public"))
 app.use(cookieParser())

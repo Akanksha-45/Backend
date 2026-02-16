@@ -1,20 +1,9 @@
 //require ('dotenv').config({path : './env'}
 
 
-import express from "express";
-
-
 import connectDB from "./db/index.js";
-import userRouter from "./routes/user.routes.js";
+import {app} from "./app.js";
 
-
-
-
-const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-app.use("/api/v1/users", userRouter);
 
 connectDB()
 

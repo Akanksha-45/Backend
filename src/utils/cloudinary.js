@@ -24,19 +24,19 @@ import fs from "fs"
             })
 
             //file has been uploaded
-            console.log("file has been uploaded on cloudinary",response.url,
+            //console.log("file has been uploaded on cloudinary",response.url,
                
-            );
+           // );
+
+           fs.unlinkSync(localFilePath)  //remove the locally file as upload
             return response;
         }catch (error) {
-            fs.unlinkSync(localFilePath)  //remove the locally file as upload
-
+            console.log("Cloudinary upload error:", error);
+            if(localFilePath && fs.existsSync(localFilePath)) {
+                fs.unlinkSync(localFilePath)  //remove the locally file as upload
+            }
             return null;
     }
 }
 
-
-    cloudinary.uploader.upload("sample.jpg", 
-  { public_id: "sample" }, 
-  function(error, result) {console.log(result); });
-  export default uploadOnCloudinary;
+export default uploadOnCloudinary;

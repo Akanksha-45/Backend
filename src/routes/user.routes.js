@@ -20,7 +20,7 @@ router.route("/register").post(
 
     router.route("/logout").post(verifyJWT, logoutUser)
 
-
+router.route("/refresh-token").post(refreshAccessToken)
 
 
 

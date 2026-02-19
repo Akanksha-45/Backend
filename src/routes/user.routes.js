@@ -5,7 +5,12 @@ import {
    logoutUser, 
    refreshAccessToken ,
     changeCurrentPassword,
-    getCurrentUser
+    getCurrentUser,
+    updateAccountDetails,
+        updateUserAvatar,
+        updateUserCoverImage,
+        getUserChannelPrfile,
+        getWatchHistory
 } from '../controllers/user.js';
 import { verifyJWT } from '../middlewares/auth.middleware.js';
 
@@ -32,10 +37,15 @@ router.route("/register").post(
 
 router.route("/refresh-token").post(refreshAccessToken)
 
+router.route("/change-password").post(verifyJWT, changeCurrentPassword)
+router.route("/curent-user").get(verifyJWT, getCurrentUser) 
 
+router.route("update-account").patch(verifyJWT, updateAccountDetails)
+router.route("/update-avatar").patch(verifyJWT, upload.single("avatar"), updateUserAvatar)
+router.route("/update-cover-image").patch(verifyJWT, upload.single("coverImage"), updateUserCoverImage)
+router.route("/c/:username").get(getUserChannelPrfile)
 
-
-
+router.route("/watch-history").get(verifyJWT, getWatchHistory)
 
 
 export default router;
